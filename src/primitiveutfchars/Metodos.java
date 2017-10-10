@@ -79,10 +79,10 @@ public class Metodos {
         try {
             
               for(int i=0;i<3;i++){
-                
+                actual +=dis.available();
                 
             if(i==1){
-                
+                 disponible +=dis.available();
                  for(int j=0;j<18;j++){
                  letras += dis.readChar();
                  
@@ -92,18 +92,20 @@ public class Metodos {
                
                   
                  if(i==0){
-                 System.out.println("Lemos a primeira cadea en UTF :"+dis.readUTF());
-                 System.out.println("Número de bytes lidos = "+dis.available());
+                 System.out.println("Lemos a primeira cadea en UTF :\n"+dis.readUTF());
+                 System.out.println("Número de bytes lidos = "+(actual-dis.available()));
+                 System.out.println("Bytes restantes por ler :"+dis.available());
                  }else{
-                     System.out.println("Lemos a segunda cadea");   
+                     System.out.println("Lemos a segunda cadea Chars :");   
                      System.out.println(letras);
-                     System.out.println("Número de bytes lidos : "+actual);
+                     System.out.println("Número de bytes lidos : "+(disponible-dis.available()));
+                     System.out.println("Bytes restantes por ler :"+dis.available());
                  }
                 
                  
              }
               }  
-             System.out.println("Número total de bytes lidos  "+ dis.available()+ " bytes" );
+         
             
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
